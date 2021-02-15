@@ -25,7 +25,7 @@ jobs:
       - run: gcc Tests.c -o Tests -lm
       - run: mv Tests testing
       
-      - perist_to_workspace:
+      - persist_to_workspace:
           root: testing
           paths:
             - Tests
