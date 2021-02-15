@@ -22,7 +22,7 @@ jobs:
       - image: gcc:8.2
     steps:
       - checkout
-      - run: ./Test
+      - run: ls
 
           
 # Orchestrate or schedule a set of jobs
