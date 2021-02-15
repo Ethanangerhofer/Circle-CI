@@ -9,7 +9,7 @@ executors:
   my-executor:
     docker:
       - image: gcc:8.2
-    working_directory: /tmp
+    working_directory: /build
   
   
 # Define the jobs we want to run for this project
@@ -39,7 +39,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/testing
+          at: /build/testing
           
       - run: ls
 
