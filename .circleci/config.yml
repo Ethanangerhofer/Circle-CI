@@ -10,13 +10,13 @@ orbs:
 jobs:
   build:
     docker:
-      - image: g++:10.2.1
+      - image: gcc:8.2
     steps:
       - checkout
       - run: echo "this is the build job"
   test:
     docker:
-      - image: g++:10.2.1
+      - image: gcc:8.2
     steps:
       - checkout
       - run: echo "this is the test job"
