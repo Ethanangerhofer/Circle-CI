@@ -5,23 +5,42 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 
-
+executors:
+  my-executor:
+    docker:
+      - image: gcc:8.2
+    working_directory: /tmp
+  
+  
 # Define the jobs we want to run for this project
 jobs:
   compile:
+    executor: my-executor
     parallelism: 2
     docker:
       - image: gcc:8.2
     steps:
       - checkout
+      - run: mkdir testing
       - run: gcc Tests.c -o Tests -lm
+      - run: mv Tests testing
+      
+      - perist_to_workspace:
+          root: testing
+          paths:
+            - Tests
+        
 
   test:
+    executor: my-executor
     parallelism: 2
     docker:
       - image: gcc:8.2
     steps:
       - checkout
+      - attach_workspace:
+          at: /tmp/testing
+          
       - run: ls
 
           
