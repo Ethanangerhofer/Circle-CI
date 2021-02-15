@@ -10,19 +10,13 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/<language>:<version TAG>
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+      - image: g++:10.2.1
     steps:
       - checkout
       - run: echo "this is the build job"
   test:
     docker:
-      - image: circleci/<language>:<version TAG>
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+      - image: g++:10.2.1
     steps:
       - checkout
       - run: echo "this is the test job"
