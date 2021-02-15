@@ -1,4 +1,6 @@
 //Header File with some random Test Functions
+#include <math.h>
+
 
 float PeriodicFunction(float x, float Period)
 {
