@@ -65,8 +65,8 @@ workflows:
 
   compile_and_link:
     jobs:
-      -compile
-      -link: 
-        requires:
-          -compile
+      - compile
+      - link:
+          requires: 
+            - compile
         
